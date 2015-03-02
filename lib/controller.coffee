@@ -327,16 +327,17 @@ class Controller
 
   evalFlash: (range) ->
     editor = atom.workspace.getActiveEditor()
-    marker = editor.markBufferRange(range, invalidate: 'touch')
-    decoration = editor.decorateMarker(marker,
-                    type: 'line',
-                    class: "eval-flash")
-    # return fn to flash error/success and destroy the flash
-    (cssClass) ->
-      decoration.update(type: 'line', class: cssClass)
-      destroy = ->
-        marker.destroy()
-      setTimeout(destroy, 100)
+    if editor
+      marker = editor.markBufferRange(range, invalidate: 'touch')
+      decoration = editor.decorateMarker(marker,
+                      type: 'line',
+                      class: "eval-flash")
+      # return fn to flash error/success and destroy the flash
+      (cssClass) ->
+        decoration.update(type: 'line', class: cssClass)
+        destroy = ->
+          marker.destroy()
+        setTimeout(destroy, 100)
 
 
 #atom-pair
@@ -582,15 +583,15 @@ class Controller
   pairEval: (data) -> #pair evaluation
     if data.event.newRange then newRange = Range.fromObject(data.event.newRange)
     if data.event.newExpression then newExpression = data.event.newExpression
-    if data.color then buddyColor = data.color
+    if data.colour then buddyColour = data.colour
 
     if atom.config.get('supercopair.broadcast_bypass')
-      if not confirm("Your "+buddyColor+" buddy wants to evaluate:\n"+newExpression)
+      if not confirm("Your "+buddyColour+" buddy wants to evaluate:\n"+newExpression)
         return;
 
     switch data.changeType
       when 'evaluation'
-        noticeView = new AlertView "Your "+buddyColor+" buddy evaluated: \n"+newExpression
+        noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: \n"+newExpression
         atom.workspace.addModalPanel(item: noticeView, visible: true)
         @evalWithRepl(newExpression, @currentPath(), newRange)
       when 'cmd-period'
