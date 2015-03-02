@@ -1,7 +1,7 @@
 #atom-supercollider
 Controller = require './controller'
 
-module.exports = Supercopair = 
+module.exports = Supercopair =
 #atom-supercollider
   controller: null
   configDefaults:
@@ -33,9 +33,7 @@ module.exports = Supercopair =
 
   activate: (state) ->
   #atom-supercollider
-    @controller = new Controller(
-      atom.workspaceView,
-      atom.project.getRootDirectory())
+    @controller = new Controller(atom.project.getRootDirectory())
     @controller.start()
 
   deactivate: ->

@@ -31,7 +31,7 @@ class Controller
   modalPanel: null
   subscriptions: null
 
-  constructor: (@workspaceView, directory) ->
+  constructor: (directory) ->
   #atom-supercollider
     @defaultURI = "sclang://localhost:57120"
     @projectRoot = if directory then directory.path else ''
@@ -40,41 +40,6 @@ class Controller
     @markers = []
 
   start: ->
-  #atom-supercollider
-    @workspaceView.command "supercopair:open-post-window", => @openPostWindow(@defaultURI)
-    @workspaceView.command "supercopair:clear-post-window", => @clearPostWindow()
-    @workspaceView.command "supercopair:recompile", => @recompile()
-    @workspaceView.command "supercopair:cmd-period", => @cmdPeriod()
-    @workspaceView.command "supercopair:eval", => @eval()
-    @workspaceView.command "supercopair:open-help-file", => @openHelpFile()
-
-  #atom-supercopair
-    @workspaceView.command "supercopair:broadcast-eval", => @broadcastEval(false)
-    @workspaceView.command "supercopair:broadcast-cmd-period", => @broadcastCmdPeriod(false)
-    @workspaceView.command "supercopair:broadcast-eval-exclusively", => @broadcastEval(true)
-    @workspaceView.command "supercopair:broadcast-cmd-period-exclusively", => @broadcastCmdPeriod(true)
-
-  #atom-supercollider
-    # open a REPL for sclang on this host/port
-    atom.workspace.registerOpener (uri) =>
-      try
-        {protocol, hostname, port} = url.parse(uri)
-      catch error
-        return
-      return unless protocol is 'sclang:'
-
-      onClose = =>
-        if @activeRepl is repl
-          @destroyRepl()
-        delete @repls[uri]
-
-      repl = new Repl(uri, @projectRoot, onClose)
-      @activateRepl repl
-      @repls[uri] = repl
-      window = repl.createPostWindow()
-      repl.startSCLang()
-      window
-
   #atom-pair
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
@@ -96,6 +61,39 @@ class Controller
     @events = []
     _.extend(@, HipChatInvite, Marker, GrammarSync, AtomPairConfig)
 
+  #atom-supercopair
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:broadcast-eval", => @broadcastEval(false)
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:broadcast-cmd-period", => @broadcastCmdPeriod(false)
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:broadcast-eval-exclusively", => @broadcastEval(true)
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:broadcast-cmd-period-exclusively", => @broadcastCmdPeriod(true)
+
+  #atom-supercollider
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:open-post-window", => @openPostWindow(@defaultURI)
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:clear-post-window", => @clearPostWindow()
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:recompile", => @recompile()
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:cmd-period", => @cmdPeriod()
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:eval", => @eval()
+    @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:open-help-file", => @openHelpFile()
+
+    # open a REPL for sclang on this host/port
+    atom.workspace.registerOpener (uri) =>
+      try
+        {protocol, hostname, port} = url.parse(uri)
+      catch error
+        return
+      return unless protocol is 'sclang:'
+
+      onClose = =>
+        if @activeRepl is repl
+          @destroyRepl()
+        delete @repls[uri]
+
+      repl = new Repl(uri, @projectRoot, onClose)
+      @activateRepl repl
+      @repls[uri] = repl
+      window = repl.createPostWindow()
+      repl.startSCLang()
+      window
 
 
 #atom-supercollider
@@ -341,11 +339,6 @@ class Controller
       setTimeout(destroy, 100)
 
 
-
-
-
-
-
 #atom-pair
   customPaste: ->
     text = atom.clipboard.read()
@@ -369,6 +362,7 @@ class Controller
 
   copyId: ->
     atom.clipboard.write(@sessionId)
+    @startPanel.hide()
 
   hidePanel: ->
     _.each atom.workspace.getModalPanels(), (panel) -> panel.hide()

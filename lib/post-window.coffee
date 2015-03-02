@@ -30,7 +30,7 @@ class PostWindow extends ScrollView
 
   @content: ->
     @div class: 'native-key-bindings post-window', tabindex: -1, =>
-      @div outlet:"scroller", class:"scroll-view editor editor-colors", =>
+      @div outlet:"scroller", class:"scroll-view post-window-editor editor-colors", =>
         @div outlet:"posts", class:"lines"
 
   addMessage: (text) ->
