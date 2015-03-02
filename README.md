@@ -1,10 +1,12 @@
 # SupercoPair
 
-Mix of two great Atom packages: SuperCollider and AtomPair.
+Merge of two great Atom packages: SuperCollider and AtomPair.
 You can see more information following the links below:
 
-Supercollider: https://atom.io/packages/supercollider
-AtomPair: https://atom.io/packages/atom-pair
+Supercollider (0.4.2): https://atom.io/packages/supercollider
+
+AtomPair (0.1.0): https://atom.io/packages/atom-pair
+
 
 ## Commands
 
