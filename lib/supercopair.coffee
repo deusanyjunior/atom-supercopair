@@ -1,14 +1,12 @@
 #atom-supercollider
 Controller = require './controller'
 
-module.exports =
+module.exports = Supercopair = 
 #atom-supercollider
   controller: null
   configDefaults:
     classicRepl: true
     growlOnError: false
-
-
 
 #atom-pair
   config:

@@ -3,11 +3,6 @@ url = require('url')
 Repl = require('./repl')
 {$, Range} = require 'atom'
 
-
-
-
-
-
 #atom-pair
 StartView = require './views/start-view'
 InputView = require './views/input-view'
@@ -28,11 +23,6 @@ AtomPairConfig = require './modules/atom_pair_config'
 {CompositeDisposable, Range} = require 'atom'
 
 
-
-
-
-
-
 module.exports =
 class Controller
 
@@ -51,19 +41,20 @@ class Controller
 
   start: ->
   #atom-supercollider
-    @workspaceView.command "supercopair:open-post-window", =>
-      @openPostWindow(@defaultURI)
-    @workspaceView.command "supercopair:clear-post-window", =>
-      @clearPostWindow()
-    @workspaceView.command "supercopair:recompile", =>
-      @recompile()
-    @workspaceView.command "supercopair:cmd-period", =>
-      @cmdPeriod()
-    @workspaceView.command "supercopair:eval", =>
-      @eval()
-    @workspaceView.command "supercopair:open-help-file", =>
-      @openHelpFile()
+    @workspaceView.command "supercopair:open-post-window", => @openPostWindow(@defaultURI)
+    @workspaceView.command "supercopair:clear-post-window", => @clearPostWindow()
+    @workspaceView.command "supercopair:recompile", => @recompile()
+    @workspaceView.command "supercopair:cmd-period", => @cmdPeriod()
+    @workspaceView.command "supercopair:eval", => @eval()
+    @workspaceView.command "supercopair:open-help-file", => @openHelpFile()
 
+  #atom-supercopair
+    @workspaceView.command "supercopair:broadcast-eval", => @broadcastEval(false)
+    @workspaceView.command "supercopair:broadcast-cmd-period", => @broadcastCmdPeriod(false)
+    @workspaceView.command "supercopair:broadcast-eval-exclusively", => @broadcastEval(true)
+    @workspaceView.command "supercopair:broadcast-cmd-period-exclusively", => @broadcastCmdPeriod(true)
+
+  #atom-supercollider
     # open a REPL for sclang on this host/port
     atom.workspace.registerOpener (uri) =>
       try
@@ -104,21 +95,6 @@ class Controller
     @timeouts = []
     @events = []
     _.extend(@, HipChatInvite, Marker, GrammarSync, AtomPairConfig)
-
-  #atom-scoopair
-    @workspaceView.command "supercopair:broadcast-eval", =>
-      @broadcastEval(false)
-    @workspaceView.command "supercopair:broadcast-cmd-period", =>
-      @broadcastCmdPeriod(false)
-    @workspaceView.command "supercopair:broadcast-eval-exclusively", =>
-      @broadcastEval(true)
-    @workspaceView.command "supercopair:broadcast-cmd-period-exclusively", =>
-      @broadcastCmdPeriod(true)
-
-
-
-
-
 
 
 
@@ -500,7 +476,7 @@ class Controller
         @changeBuffer(event) if event.eventType is 'buffer-change'
         if event.eventType is 'buffer-selection'
           @updateCollaboratorMarker(event)
-#atom-scoopair
+#atom-supercopair
         if event.eventType is 'broadcast-event'
           @pairEval(event)
 
@@ -590,7 +566,7 @@ class Controller
 
 
 
-  #atom-scoopair
+#atom-supercopair
   broadcastEval: (exclusively) -> #broadcast evaluation exclusively or not
     return unless @editorIsSC()
     [expression, range] = @currentExpression()
@@ -614,7 +590,7 @@ class Controller
     if data.event.newExpression then newExpression = data.event.newExpression
     if data.color then buddyColor = data.color
 
-    if atom.config.get('supercollider.broadcast_bypass')
+    if atom.config.get('supercopair.broadcast_bypass')
       if not confirm("Your "+buddyColor+" buddy wants to evaluate:\n"+newExpression)
         return;
 

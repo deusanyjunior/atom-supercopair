@@ -1,19 +1,14 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-    'SupercoPair: Open help file': 'supercopair:open-help-file'
-    'SupercoPair: Evaluate selection': 'supercopair:eval'
-    'SupercoPair: Broadcast evaluation', 'supercopair:broadcast-eval'
-    'SupercoPair: Broadcast evaluation exclusively', 'supercopair:broadcast-eval-exclusively'
-    'SupercoPair: Broadcast cmd-period', 'supercopair:broadcast-cmd-period'
-    'SupercoPair: Broadcast cmd-period exclusively', 'supercopair:broadcast-cmd-period-exclusively' },
-
+    'Supercopair: Open help file': 'supercopair:open-help-file'
+    'Supercopair: Evaluate selection': 'supercopair:eval'
 
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'SuperCollider'
+      'label': 'Supercopair'
       'submenu': [
         { 'label': 'Open post window', 'command': 'supercopair:open-post-window' },
         { 'label': 'Evaluate selection', 'command': 'supercopair:eval' },

@@ -1,8 +1,11 @@
 {
   "name": "supercopair",
   "version": "0.6.0",
-  "description": "Mix of two great Atom packages: SuperCollider and AtomPair",
-  "repository": "https://github.com/deusanyjunior/atom-supercopair.git",
+  "description": "Merge of two great Atom packages: SuperCollider and AtomPair",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deusanyjunior/atom-supercopair.git"
+  },
   "homepage": "https://github.com/deusanyjunior/atom-supercopair",
   "license": "MIT",
   "engines": {
@@ -22,17 +25,5 @@
     "randomstring": "^1.0.3",
     "space-pen": "^5.0.1"
   },
-  "main": "./lib/supercopair",
-  "activationEvents": [
-    "supercopair:eval",
-    "supercopair:open-post-window",
-    "supercopair:clear-post-window",
-    "supercopair:open-help-file",
-    "supercopair:recompile",
-    "supercopair:cmd-period",
-    "supercopair:broadcast-eval",
-    "supercopair:broadcast-eval-exclusively",
-    "supercopair:broadcast-cmd-period",
-    "supercopair:broadcast-cmd-period-exclusively"
-  ]
+  "main": "./lib/supercopair"
 }

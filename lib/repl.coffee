@@ -48,7 +48,7 @@ class Repl
       .then (options) =>
         @bus.push rendering.displayOptions(options)
         options.errorsAsJSON =
-          !(atom.config.get 'atom-supercollider.classicRepl')
+          !(atom.config.get 'supercopair.classicRepl')
         @bootProcess(dir, options)
 
   bootProcess: (dir, options) ->
@@ -93,7 +93,7 @@ class Repl
     @sclang.on 'exit', () =>
       @bus.push("<div class='state dead'>sclang exited</div>")
       unless @recompiling
-        if atom.config.get 'atom-supercollider.growlOnError'
+        if atom.config.get 'supercopair.growlOnError'
           growl("sclang exited", {title: "SuperCollider"})
       unlisten(@sclang)
       @sclang = null
@@ -112,7 +112,7 @@ class Repl
       errorTime = new Date()
       err.errorTime = errorTime
       @bus.push rendering.renderError(err, null)
-      if atom.config.get 'atom-supercollider.growlOnError'
+      if atom.config.get 'supercopair.growlOnError'
         show = true
         if lastErrorTime?
           show = (errorTime - lastErrorTime) > 1000
@@ -130,7 +130,7 @@ class Repl
 
     deferred = Q.defer()
 
-    classic = atom.config.get 'atom-supercollider.classicRepl'
+    classic = atom.config.get 'supercopair.classicRepl'
 
     ok = (result) =>
       @bus.push "<div class='pre out'>#{result}</div>"
