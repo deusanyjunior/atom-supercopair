@@ -1,5 +1,5 @@
 {
-  "name": "supercopair",
+  "name": "atom-supercopair",
   "version": "0.7.0",
   "description": "Merge of two great Atom packages: SuperCollider and AtomPair",
   "repository": {
