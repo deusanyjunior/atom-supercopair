@@ -1,5 +1,7 @@
 # SuperCollider for Atom
 
+[![Join the chat at https://gitter.im/deusanyjunior/atom-supercopair](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deusanyjunior/atom-supercopair?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A SuperCollider development environment for Atom.io
 
 ---
@@ -115,7 +117,7 @@ Add support for the supercollider language by making a file called ~/.ctags
 
     --langdef=supercollider
     --langmap=supercollider:.sc
-    --regex-supercollider=/^([A-Z]{1}[a-zA-Z0-9_]*) /\1/c,class/
+    --regex-supercollider=/^([A-Z]{1}[a-zA-Z0-9_]*)[ \[]{1}/\1/c,class/
     --regex-supercollider=/^[[:space:]]*(\*[a-z]{1}[a-zA-Z0-9_]*) \{/\1/m,method/
     --regex-supercollider=/^[[:space:]]*([a-z]{1}[a-zA-Z0-9_]*) \{/\1/m,method/
 
@@ -186,3 +188,10 @@ and specify paths to sclang and scsynth
 There are many Atom packages for auto-complete. However they use text matching and not direct introspection.
 It would be possible to dump the class/method interface to a JSON file and then load that into auto-complete-plus.
 This would provide pretty good auto-complete with argument names and everything.
+
+
+## Support
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/crucialfelix/atom-supercollider?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+Issues and pull requests welcome.
