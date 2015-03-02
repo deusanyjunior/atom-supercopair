@@ -1,8 +1,13 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-    'SuperCollider: Evaluate selection': 'supercollider:eval'
-    'SuperCollider: Open help file': 'supercollider:open-help-file'
+    'SupercoPair: Open help file': 'supercopair:open-help-file'
+    'SupercoPair: Evaluate selection': 'supercopair:eval'
+    'SupercoPair: Broadcast evaluation', 'supercopair:broadcast-eval'
+    'SupercoPair: Broadcast evaluation exclusively', 'supercopair:broadcast-eval-exclusively'
+    'SupercoPair: Broadcast cmd-period', 'supercopair:broadcast-cmd-period'
+    'SupercoPair: Broadcast cmd-period exclusively', 'supercopair:broadcast-cmd-period-exclusively' },
+
 
 'menu': [
   {
@@ -10,9 +15,13 @@
     'submenu': [
       'label': 'SuperCollider'
       'submenu': [
-        { 'label': 'Open post window', 'command': 'supercollider:open-post-window' }
-        { 'label': 'Evaluate selection', 'command': 'supercollider:eval' },
-        { 'label': 'Open help file', 'command': 'supercollider:open-help-file' }
+        { 'label': 'Open post window', 'command': 'supercopair:open-post-window' },
+        { 'label': 'Evaluate selection', 'command': 'supercopair:eval' },
+        { 'label': 'Broadcast evaluation', 'command': 'supercopair:broadcast-eval' },
+        { 'label': 'Broadcast evaluation exclusively', 'command': 'supercopair:broadcast-eval-exclusively' },
+        { 'label': 'Broadcast cmd-period', 'command': 'supercopair:broadcast-cmd-period' },
+        { 'label': 'Broadcast cmd-period exclusively', 'command': 'supercopair:broadcast-cmd-period-exclusively' },
+        { 'label': 'Open help file', 'command': 'supercopair:open-help-file' }
       ]
     ]
   }

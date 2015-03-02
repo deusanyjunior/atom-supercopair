@@ -1,9 +1,9 @@
 {
-  "name": "supercollider",
-  "version": "0.4.2",
-  "description": "SuperCollider development environment for Atom",
-  "repository": "https://github.com/crucialfelix/atom-supercollider.git",
-  "homepage": "https://github.com/crucialfelix/atom-supercollider",
+  "name": "supercopair",
+  "version": "0.1.0",
+  "description": "Mix of two great Atom packages: SuperCollider and AtomPair",
+  "repository": "https://github.com/deusanyjunior/atom-supercopair.git",
+  "homepage": "https://github.com/deusanyjunior/atom-supercopair",
   "license": "MIT",
   "engines": {
     "atom": ">0.170.0"
@@ -16,14 +16,23 @@
     "moment": "~2.9.0",
     "q": "^1.2.0",
     "underscore": "^1.8.2"
+    "atom-space-pen-views": "^2.0.3",
+    "jquery": "^2.1.3",
+    "node-hipchat": "^0.4.5",
+    "randomstring": "^1.0.3",
+    "space-pen": "^5.0.1"
   },
-  "main": "./lib/supercollider",
+  "main": "./lib/supercopair",
   "activationEvents": [
-    "supercollider:eval",
-    "supercollider:open-post-window",
-    "supercollider:clear-post-window",
-    "supercollider:open-help-file",
-    "supercollider:recompile",
-    "supercollider:cmd-period"
+    "supercopair:eval",
+    "supercopair:open-post-window",
+    "supercopair:clear-post-window",
+    "supercopair:open-help-file",
+    "supercopair:recompile",
+    "supercopair:cmd-period",
+    "supercopair:broadcast-eval",
+    "supercopair:broadcast-eval-exclusively",
+    "supercopair:broadcast-cmd-period",
+    "supercopair:broadcast-cmd-period-exclusively"
   ]
 }

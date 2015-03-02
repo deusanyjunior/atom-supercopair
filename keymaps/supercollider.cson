@@ -8,16 +8,30 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 '.platform-darwin atom-workspace':
-  'shift-cmd-C': 'supercollider:clear-post-window'
+  'shift-cmd-C': 'supercopair:clear-post-window'
 'atom-workspace atom-text-editor:not(.mini)':
-  'cmd-\\': 'supercollider:open-post-window'
-  'shift-enter': 'supercollider:eval'
-  'shift-cmd-k': 'supercollider:recompile'
-  'cmd-.': 'supercollider:cmd-period'
-  'shift-cmd-C': 'supercollider:clear-post-window'
+  'cmd-\\': 'supercopair:open-post-window'
+  'shift-enter': 'supercopair:eval'
+  'shift-cmd-k': 'supercopair:recompile'
+  'cmd-.': 'supercopair:cmd-period'
+  'shift-cmd-C': 'supercopair:clear-post-window'
   # you may add these to your personal keymaps
   # scope dependant keymaps are an upcoming atom feature
   # cmd-D is far too popular
   # cmd-shift-h conflicts with git-plus
   # cmd-? would be great but cuts off atom's own help system
   # 'cmd-shift-h': 'supercollider:open-help-file'
+#atom-pair
+'atom-text-editor#AtomPair':
+  'ctrl-v': 'supercopair:custom-paste'
+  'cmd-v':  'supercopair:custom-paste'
+#atom-scoopair
+  'shift-cmd-b': 'supercopair:broadcast-eval'
+  'shift-cmd-x': 'supercopair:broadcast-eval-exclusively'
+  'shift-cmd-t': 'supercopair:broadcast-cmd-period'
+  'shift-cmd-u': 'supercopair:broadcast-cmd-period-exclusively'
+'div.session-id':
+  'cmd-c':  'supercopair:copyid'
+  'ctrl-c': 'supercopair:copyid'
+'atom-panel-container.bottom':
+  'escape': 'core:cancel'
