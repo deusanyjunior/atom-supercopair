@@ -27,11 +27,11 @@ First of all, you need to start a new session.
 > - Open Atom
 > - Create a new “file.sc” or open an existing SuperCollider file.
 > - Start a new session:
- - Command-Shift-P
+ - Shift-Command-P or Shift-Ctrl-P
  - `Supercopair: Start new pairing session`
  - Copy the “session ID” and send to your friends
 > - Open a post window:
- - Shift-Command-K
+ - Shift-Command-K or Shift-Ctrl-K
 > - Boot SuperCollider and evaluate:
  - `s.boot`
  - Shift-Enter
@@ -50,11 +50,11 @@ Now, your friends can join your session. If you are alone in the morning and wan
 > - Open Atom
 > - Copy the “session ID” shared with you
 > - Join a pairing session:
- - Command-Shift-P
+ - Shift-Command-P of Shift-Ctrl-P
  - `Supercopair: Join pairing session`
  - Paste the “session ID” and hit Enter
 > - Open a post window:
- - Shift-Command-K
+ - Shift-Command-K or Shift-Ctrl-K
 > - Boot SuperCollider and evaluate:
  - `s.boot`
  - Shift-Enter
@@ -74,6 +74,8 @@ You can use these shortcuts to interact with SuperCollider local server:
 | Shift-Enter      | Evaluate selection or current line                   |
 | Shift-Command-C  | Clear post window                                    |
 | Command-.        | Panic ! Stop all music                               |
+
+You can use Ctrl instead of Command while using Linux or Windows.
 
 The server control window can be opened anytime evaluating this line:
 
@@ -102,9 +104,9 @@ Start a new session and use these commands to broadcast codes.
 | Shift-Command-B  | Broadcast an evaluation to everyone on the session   |
 | Shift-Command-X  | Broadcast an evaluation exclusively to your pairs    |
 | Shift-Command-T  | Broadcast cmd-. to everyone on the session           |
-| Shift-Command-U  | Broadcast cmd-. exclusively to your pairs            |
+| Shift-Command-Y  | Broadcast cmd-. exclusively to your pairs            |
 
-You can access these commands through the main menu.
+You can use Ctrl instead of Command while using Linux or Windows, and you can also access these commands through the main menu.
 
 ## Support
 
