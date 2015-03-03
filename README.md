@@ -27,17 +27,17 @@ First of all, you need to start a new session.
 > - Open Atom
 > - Create a new “file.sc” or open an existing SuperCollider file.
 > - Start a new session:
- - (Mac OSx shortcut) Command-Shift-P
- - (write) Supercopair: Start new pairing session
+ - Command-Shift-P
+ - `Supercopair: Start new pairing session`
  - Copy the “session ID” and send to your friends
 > - Open a post window:
- - (Mac OSx shortcut) Shift-Command-K
+ - Shift-Command-K
 > - Boot SuperCollider and evaluate:
- - (write) s.boot
- - (Mac OSx shortcut) Shift-Enter
+ - `s.boot`
+ - Shift-Enter
 > - Play some sound to test and evaluate:
- - (write) ().play
- - (Mac OSx shortcut) Shift-Enter
+ - `().play`
+ - Shift-Enter
 > - Start coding while your friends join the session..
 
 
@@ -50,17 +50,17 @@ Now, your friends can join your session. If you are alone in the morning and wan
 > - Open Atom
 > - Copy the “session ID” shared with you
 > - Join a pairing session:
- - (Mac OSx shortcut) Command-Shift-P
- - (write) Supercopair: Join pairing session
+ - Command-Shift-P
+ - `Supercopair: Join pairing session`
  - Paste the “session ID” and hit Enter
 > - Open a post window:
- - (Mac OSx shortcut) Shift-Command-K
+ - Shift-Command-K
 > - Boot SuperCollider and evaluate:
- - (write) s.boot
- - (Mac OSx shortcut) Shift-Enter
+ - `s.boot`
+ - Shift-Enter
 > - Play some sound to test and evaluate:
- - (write) ().play
- - (Mac OSx shortcut) Shift-Enter
+ - `().play`
+ - Shift-Enter
 > - Start a happy and Cooperative Live Coding!
 
 
@@ -99,10 +99,10 @@ Start a new session and use these commands to broadcast codes.
 
 | key              | command                                              |
 | ---------------- | ---------------------------------------------------- |
-| `shift-cmd-b`    | Broadcast an evaluation to everyone on the session   |
-| `shift-cmd-x`    | Broadcast an evaluation exclusively to your pairs    |
-| `shift-cmd-t`    | Broadcast cmd-. to everyone on the session           |
-| `shift-cmd-u`    | Broadcast cmd-. exclusively to your pairs            |
+| Shift-Command-B  | Broadcast an evaluation to everyone on the session   |
+| Shift-Command-X  | Broadcast an evaluation exclusively to your pairs    |
+| Shift-Command-T  | Broadcast cmd-. to everyone on the session           |
+| Shift-Command-U  | Broadcast cmd-. exclusively to your pairs            |
 
 You can access these commands through the main menu.
 
