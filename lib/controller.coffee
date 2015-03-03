@@ -570,15 +570,17 @@ class Controller
 
     event = {changeType: changeType, event: event, colour: @markerColour, eventType: 'broadcast-event'}
     @events.push(event)
-    @eval() if not exclusively
+    if not exclusively
+      @eval()
 
-  broadcastCmdPeriod: (exclusively) -> #broadcast command+. exclusively or not
+  broadcastCmdPeriod: (exclusively) -> #broadcast command+period exclusively or not
     changeType = 'cmd-period'
     event  = {}
 
     event = {changeType: changeType, event: event, colour: @markerColour, eventType: 'broadcast-event'}
     @events.push(event)
-    @activeRepl?.cmdPeriod() if not exclusively
+    if not exclusively
+      @activeRepl?.cmdPeriod()
 
   pairEval: (data) -> #pair evaluation
     if data.event.newRange then newRange = Range.fromObject(data.event.newRange)
@@ -595,7 +597,7 @@ class Controller
         atom.workspace.addModalPanel(item: noticeView, visible: true)
         @evalWithRepl(newExpression, @currentPath(), newRange)
       when 'cmd-period'
-        noticeView = new AlertView "Your "+buddyColor+" buddy evaluated: Command + Period"
+        noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: Command + Period"
         atom.workspace.addModalPanel(item: noticeView, visible: true)
         @activeRepl?.cmdPeriod()
       else
