@@ -101,7 +101,7 @@ Start a new session and use these commands to broadcast codes.
 
 | key              | command                                              |
 | ---------------- | ---------------------------------------------------- |
-| Shift-Command-B  | Broadcast an evaluation to everyone on the session   |
+| Shift-Command-Z  | Broadcast an evaluation to everyone on the session   |
 | Shift-Command-X  | Broadcast an evaluation exclusively to your pairs    |
 | Shift-Command-T  | Broadcast cmd-. to everyone on the session           |
 | Shift-Command-Y  | Broadcast cmd-. exclusively to your pairs            |

@@ -14,7 +14,7 @@
   'shift-cmd-k': 'supercopair:recompile'
   'cmd-.': 'supercopair:cmd-period'
 #atom-supercopair
-  'shift-cmd-b': 'supercopair:broadcast-eval'
+  'shift-cmd-z': 'supercopair:broadcast-eval'
   'shift-cmd-x': 'supercopair:broadcast-eval-exclusively'
   'shift-cmd-t': 'supercopair:broadcast-cmd-period'
   'shift-cmd-y': 'supercopair:broadcast-cmd-period-exclusively'
@@ -37,7 +37,7 @@
   'shift-ctrl-k': 'supercopair:recompile'
   'ctrl-.': 'supercopair:cmd-period'
 #atom-supercopair
-  'shift-ctrl-b': 'supercopair:broadcast-eval'
+  'shift-ctrl-z': 'supercopair:broadcast-eval'
   'shift-ctrl-x': 'supercopair:broadcast-eval-exclusively'
   'shift-ctrl-t': 'supercopair:broadcast-cmd-period'
   'shift-ctrl-y': 'supercopair:broadcast-cmd-period-exclusively'
