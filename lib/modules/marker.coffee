@@ -7,11 +7,11 @@ module.exports = Marker =
     _.each rows, (row) => @addMarker(row, colour)
 
   clearMarkers: (colour) ->
-    $("atom-text-editor#AtomPair::shadow .line-number").each (index, line) =>
+    $("atom-text-editor#Supercopair::shadow .line-number").each (index, line) =>
       $(line).removeClass(colour)
 
   addMarker: (line, colour) ->
-    element = $("atom-text-editor#AtomPair::shadow .line-number-#{line}")
+    element = $("atom-text-editor#Supercopair::shadow .line-number-#{line}")
     if element.length is 0
       @timeouts.push(setTimeout((=> @addMarker(line,colour)), 50))
     else

@@ -18,7 +18,7 @@ chunkString = require './helpers/chunk-string'
 HipChatInvite = require './modules/hipchat_invite'
 Marker = require './modules/marker'
 GrammarSync = require './modules/grammar_sync'
-AtomPairConfig = require './modules/atom_pair_config'
+SupercopairConfig = require './modules/keys_config'
 
 {CompositeDisposable, Range} = require 'atom'
 
@@ -27,7 +27,7 @@ module.exports =
 class Controller
 
 #atom-pair
-  AtomPairView: null
+  SupercopairView: null
   modalPanel: null
   subscriptions: null
 
@@ -59,7 +59,7 @@ class Controller
     @friendColours = []
     @timeouts = []
     @events = []
-    _.extend(@, HipChatInvite, Marker, GrammarSync, AtomPairConfig)
+    _.extend(@, HipChatInvite, Marker, GrammarSync, SupercopairConfig)
 
   #atom-supercopair
     @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:broadcast-eval", => @broadcastEval(false)
@@ -407,10 +407,10 @@ class Controller
   pairingSetup: ->
     @editor = atom.workspace.getActiveEditor()
     if !@editor then return atom.workspace.open().then => @pairingSetup()
-    atom.views.getView(@editor).setAttribute('id', 'AtomPair')
+    atom.views.getView(@editor).setAttribute('id', 'Supercopair')
     @connectToPusher()
     @synchronizeColours()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'AtomPair:disconnect': => @disconnect()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'Supercopair:disconnect': => @disconnect()
 
   connectToPusher: ->
     @pusher = new Pusher @app_key,
