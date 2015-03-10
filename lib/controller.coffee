@@ -358,6 +358,8 @@ class Controller
     @pusher.disconnect()
     @editorListeners.dispose()
     _.each @friendColours, (colour) => @clearMarkers(colour)
+    @clearMarkers(@markerColour)
+    @markerColour = null
     atom.views.getView(@editor).removeAttribute('id')
     @hidePanel()
 
@@ -394,12 +396,17 @@ class Controller
       alertView = new AlertView "Please set your Pusher keys."
       atom.workspace.addModalPanel(item: alertView, visible: true)
     else
+      if @markerColour
+        alreadyPairing = new AlertView "It looks like you are already in a pairing session. Please disconnect or open a new window to start/join a new one."
+        atom.workspace.addModalPanel(item: alreadyPairing, visible: true)
+        return
       @generateSessionId()
       @startView = new StartView(@sessionId)
       @startPanel = atom.workspace.addModalPanel(item: @startView, visible: true)
       @startView.focus()
       @markerColour = @colours[0]
       @pairingSetup()
+      @activeRepl?.postMessage('SupercoPair: Session started!')
 
   generateSessionId: ->
     @sessionId = "#{@app_key}-#{@app_secret}-#{randomstring.generate(11)}"
@@ -587,18 +594,22 @@ class Controller
     if data.event.newExpression then newExpression = data.event.newExpression
     if data.colour then buddyColour = data.colour
 
+    if atom.config.get('supercopair.disable_broadcast')
+      return
     if atom.config.get('supercopair.broadcast_bypass')
       if not confirm("Your "+buddyColour+" buddy wants to evaluate:\n"+newExpression)
         return;
 
     switch data.changeType
       when 'evaluation'
-        noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: \n"+newExpression
-        atom.workspace.addModalPanel(item: noticeView, visible: true)
         @evalWithRepl(newExpression, @currentPath(), newRange)
+        @activeRepl?.postMessage("Your "+buddyColour+" buddy evaluated: \n"+newExpression)
+        # noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: \n"+newExpression
+        # atom.workspace.addModalPanel(item: noticeView, visible: true)
       when 'cmd-period'
-        noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: Command + Period"
-        atom.workspace.addModalPanel(item: noticeView, visible: true)
         @activeRepl?.cmdPeriod()
+        @activeRepl?.postMessage("Your "+buddyColour+" buddy evaluated: Stop!")
+        # noticeView = new AlertView "Your "+buddyColour+" buddy evaluated: Stop!"
+        # atom.workspace.addModalPanel(item: noticeView, visible: true)
       else
         ;

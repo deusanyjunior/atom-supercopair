@@ -186,3 +186,6 @@ class Repl
 
   clearPostWindow: ->
     @postWindow.clearPostWindow()
+
+  postMessage: (message) ->
+    @bus?.push message

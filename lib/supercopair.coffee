@@ -28,7 +28,11 @@ module.exports = Supercopair =
       default: '4bf35003e819bb138249'
     broadcast_bypass:
       type: 'boolean'
-      description: 'Set true if you want to be asked before evaluating external code'
+      description: 'Select if you want to be asked before evaluating external code'
+      default: false
+    disable_broadcast:
+      type: 'boolean'
+      description: 'Select if you do not want to receive any external evaluation'
       default: false
 
   activate: (state) ->
