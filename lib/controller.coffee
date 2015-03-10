@@ -577,8 +577,10 @@ class Controller
 
     event = {changeType: changeType, event: event, colour: @markerColour, eventType: 'broadcast-event'}
     @events.push(event)
+    @activeRepl?.postMessage("You had broadcast: \n"+expression)
     if not exclusively
       @eval()
+
 
   broadcastCmdPeriod: (exclusively) -> #broadcast command+period exclusively or not
     changeType = 'cmd-period'
@@ -588,6 +590,7 @@ class Controller
     @events.push(event)
     if not exclusively
       @activeRepl?.cmdPeriod()
+      @activeRepl?.postMessage("You had broadcast: Stop!")
 
   pairEval: (data) -> #pair evaluation
     if data.event.newRange then newRange = Range.fromObject(data.event.newRange)
