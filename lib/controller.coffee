@@ -537,7 +537,7 @@ class Controller
         @buffer.insert newRange.start, newText
         actionArea = newRange.start
 
-    @editor.scrollToBufferPosition(actionArea)
+    #@editor.scrollToBufferPosition(actionArea)
     @addMarker(actionArea.toArray()[0], data.colour)
 
     @triggerPush = true
