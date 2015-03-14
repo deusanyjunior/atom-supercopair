@@ -1,6 +1,6 @@
 {
   "name": "supercopair",
-  "version": "0.9.32",
+  "version": "0.9.33",
   "description": "Merge of two great Atom packages: SuperCollider and AtomPair",
   "repository": "https://github.com/deusanyjunior/atom-supercopair.git",
   "homepage": "https://github.com/deusanyjunior/atom-supercopair",
