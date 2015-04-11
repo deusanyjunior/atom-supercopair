@@ -20,18 +20,20 @@
 
     <section class="main-content">
       <h1>
-<a id="supercopair" class="anchor" href="#supercopair" aria-hidden="true"><span class="octicon octicon-link"></span></a>SupercoPair</h1>
+<a id="supercopair" class="anchor" href="#supercopair" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperCopair</h1>
 
-<p>Merge of two great Atom packages: SuperCollider and AtomPair. You can see more information following the links below:</p>
+<p>SuperCopair is a new way to integrate cloud computing into a collaborative live coding scenario with minimum efforts in the setup. This package, created in Coffee Script for Atom.io, is developed to interact with SuperCollider and provide opportunities for the crowd of online live coders to collaborate remotely on distributed performances. Additionally, the package provides the advantages of cloud services offered by Pusher. Users can share code and evaluate lines or selected portions of code on computers connected to the same session, either at the same place and/or remotely. The package can be used for remote performances or rehearsal purposes with just an internet connection to share code and sounds. In addition, users can take advantage of code sharing to teach SuperCollider online or fix bugs in the algorithm, illustrating the cooperative idea behind the package development.</p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>The package was created based on two other great Atom packages: SuperCollider and AtomPair. You can see more information following the links below:</p>
 
 <p>Supercollider (0.4.2): <a href="https://atom.io/packages/supercollider">https://atom.io/packages/supercollider</a></p>
 
 <p>AtomPair (0.1.0): <a href="https://atom.io/packages/atom-pair">https://atom.io/packages/atom-pair</a></p>
 
-<h2>
-<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
-
-<p>This package is intended for cooperative live coding using cloud services. In this case, the sync and interaction is provided by Pusher (<a href="http://pusher.com">http://pusher.com</a>). You will need to start a session with some friends and code together on the same file. Is it possible to evaluate code and stop music in three different ways:</p>
+<p>SuperCopair is intended for cooperative live coding using cloud services. In this case, the sync and interaction is provided by Pusher (<a href="http://pusher.com">http://pusher.com</a>). You will need to start a session with some friends and code together on the same file. Is it possible to evaluate code and stop music in three different ways:</p>
 
 <ul>
 <li>Only on your system;</li>
@@ -39,7 +41,45 @@
 <li>And on all systems.</li>
 </ul>
 
-<p>You can configure a bypass on the settings, and receive an alert before each external evaluation if you don't want to accept all broadcast commands.</p>
+<p>You can configure a broadcast alert on the settings, and receive an alert before each external evaluation if you don't want to accept all broadcast commands.</p>
+
+<h2>
+<a id="environment-set-up" class="anchor" href="#environment-set-up" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment set-up</h2>
+
+<p>This set-up is necessary for everyone interested on participating in this session.</p>
+
+<h3>
+<a id="atom" class="anchor" href="#atom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atom</h3>
+
+<p>"A hackable text editor for the 21st Century" (from Atom website)</p>
+
+<p>Atom is a text editor based on web technologies. It is open source (<a href="http://mit-license.org/">MIT License</a>), multi platform (L-M-W), and has packages for many languages.</p>
+
+<p>Download: <a href="http://atom.io/">http://atom.io/</a></p>
+
+<h3>
+<a id="supercollider" class="anchor" href="#supercollider" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperCollider</h3>
+
+<p>"SuperCollider is a programming language for real time audio synthesis and algorithmic composition" (from SuperCollider website)</p>
+
+<p>SuperCollider is a programming language used by some people that like live coding. It is based on a server that synthesizes code written and evaluated by the user. You can evaluate the whole code, a selected part, or just a line using keyboard shortcuts. SuperCollider is open source (<a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>) and multi platform (L-M-W).</p>
+
+<p>Download: <a href="https://supercollider.github.io/">https://supercollider.github.io/</a></p>
+
+<h3>
+<a id="supercopair-1" class="anchor" href="#supercopair-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperCopair</h3>
+
+<p>It is possible to install Atom packages from the main window of the program. You just need to use the shortcut Ctrl-Shift-P and write Settings View: Install Packages And Themes. After this you can search for packages, install and configure them. For this tutorial, you will need to <a href="http://youtu.be/NJzoBmVPeYw">seek and install</a> this special package:</p>
+
+<ul>
+<li><a href="http://deusanyjunior.github.io/atom-supercopair/">supercopair</a></li>
+</ul>
+
+<p>You can also install the shell commands on your system, open a terminal, and use the command:</p>
+
+<p>$ apm install supercopair</p>
+
+<p>Now, ask your friends to do the same, and let's start a new session.</p>
 
 <h2>
 <a id="starting-a-new-session" class="anchor" href="#starting-a-new-session" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starting a new session</h2>
@@ -58,15 +98,15 @@
 <li>Start a new session:
 
 <ul>
-<li>Shift-Command-P or Shift-Ctrl-P</li>
-<li><code>Supercopair: Start new pairing session</code></li>
+<li>Shift-Ctrl-P or Shift-Command-P</li>
+<li><code>SuperCopair: Start new pairing session</code></li>
 <li>Copy the “session ID” and send to your friends</li>
 </ul>
 </li>
 <li>Open a post window:
 
 <ul>
-<li>Shift-Command-K or Shift-Ctrl-K</li>
+<li>Shift-Ctrl-K or Shift-Command-K</li>
 </ul>
 </li>
 <li>Boot SuperCollider and evaluate:
@@ -90,7 +130,7 @@
 <h3>
 <a id="your-friends" class="anchor" href="#your-friends" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your friends</h3>
 
-<p>Now, your friends can join your session. If you are alone in the morning and want to invite a virtual friend, you can also open a separate window using the (Mac OSx) shortcut: Command-Shift-N. Your friends will need the same environment set up to join your session, but they can use any other operational system.</p>
+<p>Now, your friends can join your session. If you are alone in the morning and want to invite a virtual friend, you can also open a separate window using the shortcut: Ctrl-Shift-N or Command-Shift-N. Your friends will need the same environment set up to join your session, but they can use any other operational system.</p>
 
 <blockquote>
 <p><strong>Friends steps:</strong></p>
@@ -101,15 +141,15 @@
 <li>Join a pairing session:
 
 <ul>
-<li>Shift-Command-P of Shift-Ctrl-P</li>
-<li><code>Supercopair: Join pairing session</code></li>
+<li>Shift-Ctrl-P or Shift-Command-P</li>
+<li><code>SuperCopair: Join pairing session</code></li>
 <li>Paste the “session ID” and hit Enter</li>
 </ul>
 </li>
 <li>Open a post window:
 
 <ul>
-<li>Shift-Command-K or Shift-Ctrl-K</li>
+<li>Shift-Ctrl-K or Shift-Command-K</li>
 </ul>
 </li>
 <li>Boot SuperCollider and evaluate:
@@ -144,7 +184,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Shift-Command-K</td>
+<td>Shift-Ctrl-K</td>
 <td>Compile library (open window if needed)</td>
 </tr>
 <tr>
@@ -152,17 +192,17 @@
 <td>Evaluate selection or current line</td>
 </tr>
 <tr>
-<td>Shift-Command-C</td>
+<td>Shift-Ctrl-C</td>
 <td>Clear post window</td>
 </tr>
 <tr>
-<td>Command-.</td>
+<td>Ctrl-.</td>
 <td>Panic ! Stop all music</td>
 </tr>
 </tbody>
 </table>
 
-<p>You can use Ctrl instead of Command while using Linux or Windows.</p>
+<p>You can use Command instead of Ctrl while using Mac OSx.</p>
 
 <p>The server control window can be opened anytime evaluating this line:</p>
 
@@ -172,16 +212,7 @@
 <p>Take a look at the original package if you want to lookup classes and use a text-completion.</p>
 
 <h2>
-<a id="atompair-info" class="anchor" href="#atompair-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>AtomPair info</h2>
-
-<p>AtomPair uses Pusher cloud service free plan and has some limitations. This service supports up to 20 clients per day. You can exchange 100k messages per day (it includes all messages sent to/from the cloud service), and the sessions may stop after reaching this limit.</p>
-
-<p>The free plan allow users to exchange messages only through the US East Coast cloud server.
-You can have other limits on paid plans, although the daily quota is reset only after midnight UTC for all plans. It is important to keep these informations in mind if you face any problem
-or high latency. You may want to try some paid plan if you need more clients, messages, or low latency in another country.</p>
-
-<h2>
-<a id="shortcuts-to-broadcast-codes" class="anchor" href="#shortcuts-to-broadcast-codes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shortcuts to broadcast codes</h2>
+<a id="shortcuts-to-broadcast-codes-and-stop" class="anchor" href="#shortcuts-to-broadcast-codes-and-stop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shortcuts to broadcast codes and stop</h2>
 
 <p>Start a new session and use these commands to broadcast codes.</p>
 
@@ -194,25 +225,36 @@ or high latency. You may want to try some paid plan if you need more clients, me
 </thead>
 <tbody>
 <tr>
-<td>Shift-Command-Z</td>
+<td>Shift-Ctrl-Z</td>
 <td>Broadcast an evaluation to everyone on the session</td>
 </tr>
 <tr>
-<td>Shift-Command-X</td>
+<td>Shift-Ctrl-X</td>
 <td>Broadcast an evaluation exclusively to your pairs</td>
 </tr>
 <tr>
-<td>Shift-Command-T</td>
-<td>Broadcast cmd-. to everyone on the session</td>
+<td>Shift-Ctrl-T</td>
+<td>Broadcast STOP to everyone on the session</td>
 </tr>
 <tr>
-<td>Shift-Command-Y</td>
-<td>Broadcast cmd-. exclusively to your pairs</td>
+<td>Shift-Ctrl-Y</td>
+<td>Broadcast STOP exclusively to your pairs</td>
 </tr>
 </tbody>
 </table>
 
-<p>You can use Ctrl instead of Command while using Linux or Windows, and you can also access these commands through the main menu.</p>
+<p>You can use Command instead of Ctrl while using Mac OSx, and you can also access these commands through the main menu.</p>
+
+<h2>
+<a id="cloud-service-info" class="anchor" href="#cloud-service-info" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cloud service info</h2>
+
+<p>SuperCopair initiates with keys from Pusher cloud service free plan, so you can just install and run.
+You need to know that the free plan has some limitations.
+It supports up to 20 clients per day, and you can exchange only 100k messages per day (it includes all messages sent to/from the cloud service), and the sessions may stop after reaching this limit.</p>
+
+<p>The free plan allow users to exchange messages only through the US East Coast cloud server.
+You can have other limits on paid plans, although the daily quota is reset only after midnight UTC for all plans. It is important to keep these informations in mind if you face any problem
+or high latency. You may want to try some paid plan if you need more clients, messages, or low latency in another country.</p>
 
 <h2>
 <a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
