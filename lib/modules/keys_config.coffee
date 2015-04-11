@@ -1,6 +1,6 @@
 _ = require 'underscore'
 
-module.exports = SupercopairConfig =
+module.exports = SuperCopairConfig =
 
   getKeysFromConfig: ->
     @app_key = atom.config.get('supercopair.pusher_app_key')

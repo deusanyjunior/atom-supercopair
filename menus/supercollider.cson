@@ -1,14 +1,14 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-    'Supercopair: Open help file': 'supercopair:open-help-file'
-    'Supercopair: Evaluate selection': 'supercopair:eval'
+    'SuperCopair: Open help file': 'supercopair:open-help-file'
+    'SuperCopair: Evaluate selection': 'supercopair:eval'
 
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Supercopair'
+      'label': 'SuperCopair'
       'submenu': [
         { 'label': 'Open post window', 'command': 'supercopair:open-post-window' },
         { 'label': 'Evaluate selection', 'command': 'supercopair:eval' },

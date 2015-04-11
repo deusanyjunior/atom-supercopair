@@ -24,7 +24,7 @@
   'ctrl-c': 'supercopair:copyid'
 '.platform-darwin atom-panel-container.bottom':
   'escape': 'core:cancel'
-'.platform-darwin atom-text-editor#Supercopair':
+'.platform-darwin atom-text-editor#SuperCopair':
   'ctrl-v': 'supercopair:custom-paste'
   'cmd-v':  'supercopair:custom-paste'
 
@@ -46,5 +46,5 @@
   'ctrl-c': 'supercopair:copyid'
 '.platform-linux atom-panel-container.bottom, .platform-win32 atom-panel-container.bottom':
   'escape': 'core:cancel'
-'.platform-linux atom-text-editor#Supercopair, .platform-win32 atom-text-editor#Supercopair':
+'.platform-linux atom-text-editor#SuperCopair, .platform-win32 atom-text-editor#SuperCopair':
   'ctrl-v': 'supercopair:custom-paste'

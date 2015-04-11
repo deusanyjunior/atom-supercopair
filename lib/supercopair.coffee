@@ -1,7 +1,7 @@
 #atom-supercollider
 Controller = require './controller'
 
-module.exports = Supercopair =
+module.exports = SuperCopair =
 #atom-supercollider
   controller: null
   configDefaults:
