@@ -1,7 +1,8 @@
 #atom-supercollider
 url = require('url')
 Repl = require('./repl')
-{$, Range} = require 'atom'
+## {$, Range} = require 'atom'
+{$, Range} = require 'atom-space-pen-views'
 
 #atom-pair
 StartView = require './views/start-view'
@@ -406,7 +407,7 @@ class Controller
       @startView.focus()
       @markerColour = @colours[0]
       @pairingSetup()
-      @activeRepl?.postMessage('SupercoPair: Session started!')
+      @activeRepl?.postMessage('SuperCopair: Session started!')
 
   generateSessionId: ->
     @sessionId = "#{@app_key}-#{@app_secret}-#{randomstring.generate(11)}"

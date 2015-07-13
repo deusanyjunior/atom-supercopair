@@ -1,5 +1,7 @@
 
-{$, ScrollView} = require 'atom'
+##{$, ScrollView} = require 'atom'
+{$, ScrollView} = require 'atom-space-pen-views'
+
 Bacon = require('baconjs')
 
 module.exports =
