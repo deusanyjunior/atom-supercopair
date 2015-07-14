@@ -1,23 +1,24 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  '.overlayer':
-    'SuperCopair: Open help file': 'supercopair:open-help-file'
-    'SuperCopair: Evaluate selection': 'supercopair:eval'
+  '.overlayer': [
+    {label: 'SuperCopair: Open help file', command: 'supercopair:open-help-file'}
+    {label: 'SuperCopair: Evaluate selection', command: 'supercopair:eval'}
+  ]
 
 'menu': [
   {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'SuperCopair'
-      'submenu': [
-        { 'label': 'Open post window', 'command': 'supercopair:open-post-window' },
-        { 'label': 'Evaluate selection', 'command': 'supercopair:eval' },
-        { 'label': 'Broadcast evaluation', 'command': 'supercopair:broadcast-eval' },
-        { 'label': 'Broadcast evaluation exclusively', 'command': 'supercopair:broadcast-eval-exclusively' },
-        { 'label': 'Broadcast cmd-period', 'command': 'supercopair:broadcast-cmd-period' },
-        { 'label': 'Broadcast cmd-period exclusively', 'command': 'supercopair:broadcast-cmd-period-exclusively' },
-        { 'label': 'Open help file', 'command': 'supercopair:open-help-file' }
+    label: 'Packages',
+    submenu: [{
+      label: 'SuperCopair',
+      submenu: [
+        {label: 'Open post window', command: 'supercopair:open-post-window' },
+        {label: 'Evaluate selection', command: 'supercopair:eval' },
+        {label: 'Broadcast evaluation', command: 'supercopair:broadcast-eval' },
+        {label: 'Broadcast evaluation exclusively', command: 'supercopair:broadcast-eval-exclusively' },
+        {label: 'Broadcast cmd-period', command: 'supercopair:broadcast-cmd-period' },
+        {label: 'Broadcast cmd-period exclusively', command: 'supercopair:broadcast-cmd-period-exclusively' },
+        {label: 'Open help file', command: 'supercopair:open-help-file' }
       ]
-    ]
+    }]
   }
 ]
