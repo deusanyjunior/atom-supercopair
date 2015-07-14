@@ -2,11 +2,14 @@
 Controller = require './controller'
 
 module.exports = SuperCopair =
-#atom-supercollider
   controller: null
-  configDefaults:
-    classicRepl: true
-    growlOnError: false
+  config:
+    growlOnError:
+      type: 'boolean'
+      default: false
+    debug:
+      type: 'boolean'
+      default: false
 
 #atom-pair
   config:
@@ -35,13 +38,16 @@ module.exports = SuperCopair =
       description: 'Select if you do not want to receive any external evaluation'
       default: false
 
+#atom-supercollider
   activate: (state) ->
-  #atom-supercollider
-    @controller = new Controller(atom.project.getRootDirectory())
+    if @controller
+      return
+    @controller = new Controller(atom.project.getDirectories()[0])
     @controller.start()
 
   deactivate: ->
     @controller.stop()
+    @controller = null
 
   serialize: ->
     {}
