@@ -163,7 +163,10 @@ class Controller
               'line',
               'line-highlight')
 
-      atom.workspace.open(uri, split: 'right', searchAllPanes: true)
+      options =
+        split: 'right'
+        searchAllPanes: true
+      atom.workspace.open(uri, options)
         .then () =>
           @activateRepl @repls[uri]
           $('.post-window').on 'click', fileOpener

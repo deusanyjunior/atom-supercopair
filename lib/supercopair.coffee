@@ -16,11 +16,11 @@ module.exports = SuperCopair =
     hipchat_token:
       type: 'string'
       description: 'HipChat admin token (optional)'
-      default: ''
+      default: 'null'
     hipchat_room_name:
       type: 'string'
       description: 'HipChat room name for sending invitations (optional)'
-      default: ''
+      default: 'null'
     pusher_app_key:
       type: 'string'
       description: 'Pusher App Key (sign up at http://pusher.com/signup and change for added security)'
