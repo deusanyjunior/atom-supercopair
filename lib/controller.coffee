@@ -77,7 +77,7 @@ class Controller
     @subscriptions.add atom.commands.add 'atom-workspace', "supercopair:open-help-file", => @openHelpFile()
 
     # open a REPL for sclang on this host/port
-    atom.workspace.registerOpener (uri) =>
+    atom.workspace.addOpener (uri, options) =>
       try
         {protocol, hostname, port} = url.parse(uri)
       catch error
@@ -185,11 +185,11 @@ class Controller
     @activeRepl?.cmdPeriod()
 
   editorIsSC: ->
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     editor and editor.getGrammar().scopeName is 'source.supercollider'
 
   currentExpression: ->
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     return unless editor?
 
     selection = editor.getLastSelection()
@@ -199,17 +199,17 @@ class Controller
     else
       # execute the line you are on
       pos = editor.getCursorBufferPosition()
-      row = editor.getCursorScreenRow()
+      row = editor.getCursorScreenPosition().row
       if row?
         range = new Range([row, 0], [row + 1, 0])
-        expression = editor.lineForBufferRow(row)
+        expression = editor.lineTextForBufferRow(row)
       else
         range = null
         expression = null
     [expression, range]
 
   currentPath: ->
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     return unless editor?
     editor.getPath()
 
@@ -330,7 +330,7 @@ class Controller
     @markers = []
 
   evalFlash: (range) ->
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
     if editor
       marker = editor.markBufferRange(range, invalidate: 'touch')
       decoration = editor.decorateMarker(marker,
@@ -416,7 +416,7 @@ class Controller
     @sessionId = "#{@app_key}-#{@app_secret}-#{randomstring.generate(11)}"
 
   pairingSetup: ->
-    @editor = atom.workspace.getActiveEditor()
+    @editor = atom.workspace.getActiveTextEditor()
     if !@editor then return atom.workspace.open().then => @pairingSetup()
     atom.views.getView(@editor).setAttribute('id', 'SuperCopair')
     @connectToPusher()
