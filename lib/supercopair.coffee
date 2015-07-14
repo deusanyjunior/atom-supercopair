@@ -29,6 +29,10 @@ module.exports = SuperCopair =
       type: 'string'
       description: 'Pusher App Secret'
       default: '4bf35003e819bb138249'
+    broadcast_bypass:
+      type: 'boolean'
+      description: 'Select if you want to be asked before evaluating external code'
+      default: false
     disable_broadcast:
       type: 'boolean'
       description: 'Select if you do not want to receive any external evaluation'
